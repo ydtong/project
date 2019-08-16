@@ -1,0 +1,25 @@
+/**
+ * @author: 周靖松
+ * @information: 人员库拆过来的样式
+ * @Date: 2019-04-10 09:08:42
+ */
+@import "../base/dialog.scss";
+
+#tanhe {
+  // 引入删除弹窗样式
+  @include dialogHead;
+  @include deleteDialog;
+
+  min-height: 100vh;
+
+  
+  .el-table--border{
+    border-bottom: 1px solid #E2E2E2
+  }
+  // 去掉右边线
+  .el-table--group::after,
+  .el-table--border::after,
+  .el-table::before {
+    display: none !important;
+  }
+}

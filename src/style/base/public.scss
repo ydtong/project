@@ -1,0 +1,113 @@
+/**
+ * @author: 周靖松
+ * @information: 页面公共样式
+ * @Date: 2019-04-15 16:40:56
+ */
+
+// 1200宽度自适应
+@mixin auto1200 {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+//message提示框
+@mixin message {
+  // 成功提示框
+  .el-message--success {
+    background-color: #757575;
+    border-color: #757575;
+    padding: 10px 10px 10px 30px;
+    .el-message__content {
+      color: #fff;
+      font-size: 16px;
+    }
+  }
+  // 错误提示框
+  .el-message--error {
+    .el-message__content {
+      font-size: 16px;
+    }
+  }
+  //提示内容
+  .el-message {
+    top: 56px;
+    min-width: 366px;
+    min-height: 66px;
+    display: flex;
+    .el-message__icon {
+      zoom: 1.5;
+    }
+    .el-icon-success {
+      color: #1fb19e;
+      background-color: #fff;
+      border-radius: 50%;
+      border: 1px solid #1fb19e;
+    }
+    .el-message__closeBtn {
+      color: #fff;
+      font-size: 12px;
+    }
+  }
+}
+
+//滚动条样式
+@mixin scroll {
+  // 滚动条整体样式, 高宽分别对应横竖滚动条的尺寸
+  /* 设置滚动条的样式 */
+  ::-webkit-scrollbar {
+  width:12px;
+  }
+  /* 滚动槽 */
+  ::-webkit-scrollbar-track {
+  -webkit-box-shadow:inset006pxrgba(0,0,0,0.3);
+  border-radius:10px;
+  }
+  /* 滚动条滑块 */
+  ::-webkit-scrollbar-thumb {
+  border-radius:10px;
+  background:rgba(0,0,0,0.1);
+  -webkit-box-shadow:inset006pxrgba(0,0,0,0.5);
+  }
+  ::-webkit-scrollbar-thumb:window-inactive {
+  background:rgba(100, 76, 76, 0.4);
+  }
+  .el-table th.gutter{
+    box-shadow: -10px -1px #1fb19e;
+  }
+}
+
+// loading 加载图片
+@mixin loading { 
+  .el-loading-spinner .circular{
+    display: none;
+  }
+  .el-loading-mask{
+    z-index: 5;
+  }
+  .el-loading-spinner{
+    top: 0 !important;
+    margin-top: 0px !important;
+    background: url('../assets/img/loading.gif') no-repeat;
+    height: 100%;
+    width: 100%;
+    // background-size: 36px 36px;
+    background-position: 50% 50%;
+  }
+}
+
+  // 引入消息提示框
+  @include message;
+  // 引入滚动条样式
+  @include scroll;
+  // 引入分页样式
+  // @include pagination;
+  // 引入加载样式
+  @include loading;
+  .el-dialog__headerbtn{
+    background-color: transparent;
+    &:hover{
+      background-color: transparent;
+    }
+  }
+// 加载公共样式
+// @include public;

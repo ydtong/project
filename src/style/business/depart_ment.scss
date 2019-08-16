@@ -1,0 +1,39 @@
+/**
+ * @author: 周靖松
+ * @information: 部门隐号页样式
+ * @Date: 2019-04-15 16:30:01
+ */
+//引入公用样式
+@import "../base/public.scss";
+//引入表格样式
+@import "../base/table.scss";
+//引入弹窗样式
+@import "../base/dialog.scss";
+// 引入高级搜索样式
+@import "../base/search.scss";
+
+
+//最终样式
+#departMent {
+  min-height: 100vh;
+  .el-main{
+    margin: 0;
+  }
+  .tableHeadClass{
+    height: 40px;
+  .el-table--whole{
+    margin-top: 10px;
+  }
+  // 引入1200宽度自适应
+  // @include auto1200;
+  // 引入表格组件样式
+  // @include table;
+  // 引入普通弹窗组件样式
+  @include dialogHead;
+  @include baseDialog;
+  // 引入高级搜索样式
+  @include advancedSearchBox;
+  @include advancedSearch;
+  @include advancedSearchFrom;
+}
+}

@@ -1,0 +1,197 @@
+/**
+ * @author: 周靖松
+ * @information: 表单样式
+ * @Date: 2019-04-15 16:42:27
+ */
+// 引入按钮样式
+@import "./btn.scss";
+
+// 公用input样式
+@mixin publicInput {
+  height: 28px;
+  line-height: 28px;
+  border-radius: 3px;
+}
+
+// input 组件常用样式
+@mixin inputComponent($width) {
+  .el-input {
+    //引入input公共样式
+    @include publicInput;
+    width: $width;
+    input {
+      //引入input公共样式
+      @include publicInput;
+      width: $width;
+    }
+  }
+}
+
+//  计数器
+@mixin inputNumber($numberWidth) {
+  .el-input-number {
+    @include publicInput;
+    width: $numberWidth;
+    // 引入input组件样式
+    @include inputComponent($numberWidth);
+    input {
+      text-align: left;
+    }
+  }
+}
+
+// 时间选择器样式
+@mixin picker {
+  .picker {
+    .el-icon-date {
+      width: 5px;
+    }
+    .el-icon-date:before {
+      position: absolute;
+      left: 90%;
+    }
+    .el-range-separator {
+      width: 15px;
+      color: #606266;
+    }
+  }
+}
+
+// dialog表单元素
+@mixin dialogForm {
+  .el-form-item {
+    width: 320px;
+    margin: 0 auto;
+    text-align: left;
+    margin-bottom: 10px;
+    // 引入计数器
+    @include inputNumber(240px);
+    //按钮
+    button {
+      // 引入加长按钮
+      @include longBtn;
+      padding: 0 20px;
+      width: auto;
+    }
+    //取消按钮
+    .cancelBtn {
+      margin-left: 30px;
+      font-size: 12px;
+    }
+    .el-form-item__content {
+      text-align: left;
+      padding-left: 68px;
+    }
+  }
+}
+
+// 高级搜索表单
+@mixin advancedSearchFrom {
+  .advanced-search {
+    // 表单
+    .el-form {
+      text-align: left;
+      margin: 20px auto 0;
+      width: 91%;
+    }
+    // 表单元素
+    .el-form-item:nth-child(even) {
+      margin-left: 20px;
+      margin-right: 0px;
+    }
+    .el-form-item {
+      margin-right: 20px;
+      .el-input__inner {
+        width: 185px;
+        .el-range__close-icon {
+          text-align: left;
+        }
+      }
+      // label
+      .el-form-item__label {
+        //引入input公共样式
+        @include publicInput;
+        width: 70px;
+      }
+      // input
+      .el-form-item__content {
+        //引入input公共样式
+        @include publicInput;
+        // 引入input常用组件样式
+        @include inputComponent(185px);
+      }
+      // 引入时间选择器样式
+      @include picker;
+    }
+    // 引入高级搜索按钮样式
+    @include searchBtn;
+  }
+}
+
+//绑定弹窗页样式
+@mixin bindPopupForm {
+  #bingDialog {
+    .el-form {
+      text-align: center;
+    }
+    // 表单元素
+    .el-form-item {
+      margin: 0 auto;
+      margin-bottom: 20px;
+      text-align: left;
+      width: 86%;
+      // 引入计数器
+      @include inputNumber(220px);
+    }
+    .label {
+      margin-left: 27%;
+      // 按钮
+      button {
+        @include longBtn;
+        border-radius: 3px;
+        padding: 0 20px;
+        width: auto;
+      }
+    }
+    // label
+    .el-form-item__label {
+      @include publicInput;
+    }
+    // item
+    .el-form-item__content {
+      @include publicInput;
+      // 下拉框
+      .el-select {
+        @include publicInput;
+        width: 220px;
+      }
+      // 引入input组件样式
+      @include inputComponent(220px);
+    }
+  }
+}
+
+// 全局表单样式
+@mixin publicStyle {
+  // 表单失焦颜色
+  .el-form-item.is-success .el-input__inner,
+  .el-form-item.is-success .el-input__inner:focus,
+  .el-form-item.is-success .el-textarea__inner,
+  .el-form-item.is-success .el-textarea__inner:focus {
+    border-color: #1fb19e;
+  }
+  .el-form-item.is-success .el-input__inner,
+  .el-form-item.is-success .el-input__inner,
+  .el-form-item.is-success .el-textarea__inner,
+  .el-form-item.is-success .el-textarea__inner {
+    border-color: #dcdfe6;
+  }
+  // 下拉框选中颜色
+  .el-select-dropdown__item.hover,
+  .el-select-dropdown__item:hover {
+    background-color: #d6f0ed;
+  }
+}
+
+// 引入样式
+@include publicStyle;

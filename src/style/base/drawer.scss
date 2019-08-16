@@ -1,0 +1,164 @@
+/**
+ * @author: 周靖松
+ * @information: 侧滑样式样式
+ * @Date: 2019-04-15 16:44:46
+ */
+//引入表单样式
+@import "./form.scss";
+//引入表格样式
+@import "./table.scss";
+
+// 侧滑表单
+@mixin drawerForm {
+  .el-form {
+    margin: 0 auto;
+    width: 85%;
+  }
+  .el-form-item {
+    margin-bottom: 20px;
+    @include publicInput;
+    // 表单元素的星星
+    .el-form-item__label:before {
+      display: none;
+    }   
+    .el-form-item__label::after {
+      content: '*';
+      color: #F56C6C;
+      margin-right: 4px;
+      margin-left: 5px;
+    }
+    .el-form-item__label {
+      padding-right: 10px;
+      @include publicInput;
+    }
+  }
+  .id-card-props{
+    .el-form-item__label::after {
+      display: none;
+    }
+  }
+  
+  //表单按钮
+  .drawer-form-btn {
+    margin-top: 30px;
+    button {
+      @include longBtn;
+      padding: 0 20px;
+      width: auto;
+    }
+    .close-btn {
+      margin-left: 30px;
+    }
+    .close-btn:focus {
+      background-color: #fff;
+    }
+  }
+  //表单input
+  .el-form-item__content {
+    width: 320px;
+    @include publicInput;
+    @include inputComponent(320px);
+  }
+}
+
+@mixin drawer {
+  // 侧滑 头部
+  .ivu-drawer-header {
+    padding: 23px 155px;
+    border-bottom: 0;
+    // box-shadow: 10px 0px 32px -3px #eee;
+    // 头部文字
+    .ivu-drawer-header-inner {
+      text-align: center;
+      font-size: 16px;
+      color: #333;
+    }
+  }
+  // 关闭按钮
+  .ivu-drawer-close {
+    top: -1px;
+    left: 0px;
+    width: 68px;
+    z-index: 2;
+    border-radius: 0px 0px 90% 0px;
+    background: #ffc43d;
+    .ivu-icon-ios-close {
+      border-radius: 0px 0px 90% 0px;
+      width: 68px;
+      height: 68px;
+      position: relative;
+      left: 0px;
+      color: #ffffff;
+    }
+    .ivu-icon-ios-close:before {
+      content: "\F11F";
+      position: absolute;
+      left: 10px;
+      top: 10px;
+    }
+  }
+  .ivu-drawer-close:hover {
+    background: #ffc94e;
+  }
+  .ivu-drawer-close:active {
+    background: #ffbe1c;
+  }
+  .ivu-drawer-close:hover .ivu-icon {
+    color: #fff;
+  }
+}
+
+// 部门隐号管理分配侧滑
+@mixin distributionDrawer {
+  #distributionDrawer {
+    width: 80%;
+    margin: 0 auto;
+    .el-form-item__content {
+      //引入input公共样式
+      @include publicInput;
+      // 引入input常用组件样式
+      @include inputComponent(280px);
+    }
+    button {
+      margin-top: 10px;
+      @include longBtn;
+      padding: 0 20px;
+      width: auto;
+    }
+  }
+}
+
+// 新增侧滑
+@mixin adddrawerForm {
+  #adddrawerForm {
+    // 引入侧滑表单样式
+    @include drawerForm;
+    .el-form-item__content {
+      width: 280px;
+      @include publicInput;
+      @include inputComponent(280px);
+    }
+  }
+}
+// 虚拟长号的星星
+@mixin hiddenCallAfterNone {
+  .hidden-call-none{
+    .el-form-item__label::after{
+      display: none;
+    }   
+  }
+}
+
+//最终样式
+.v-transfer-dom {
+  @include drawer;
+  @include table;
+  @include adddrawerForm;
+  @include distributionDrawer;
+  @include hiddenCallAfterNone;
+  .ivu-drawer-body{
+    #pagination{
+      width: 100%;
+    }
+  }
+}

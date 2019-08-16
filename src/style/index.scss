@@ -1,0 +1,19 @@
+// 主题色
+// @import "./base/element_color.scss";
+// 侧滑
+@import "./base/drawer.scss";
+// 表格批量操作
+@import "./business/batch_table.scss";
+// tanhe页样式
+// @import "./business/tanhe.scss";
+// login页样式
+@import "./business/login.scss";
+.el-container .el-footer .el-pagination {
+    padding-right: 24px;
+}
+.el-table--whole {
+    background: #fff;
+}
+.el-table::before{
+    width:0px;
+}

@@ -1,0 +1,140 @@
+/**
+ * @author: 周靖松
+ * @information: 隐号管理页面的样式
+ * @Date: 2019-04-15 16:28:30
+ */
+//引入公用样式
+@import "../base/public.scss";
+//引入表格样式
+@import "../base/table.scss";
+//引入弹窗样式
+@import "../base/dialog.scss";
+// 引入高级搜索样式
+@import "../base/search.scss";
+
+// 标签页按钮公用样式
+@mixin groupBtnPublic {
+  color: #999;
+  border: 1px solid #e2e2e2;
+}
+
+// 标签页
+@mixin hiddenLable {
+  // 标签页盒子
+  .hidden-label {
+    height: 32px;
+    line-height: 32px;
+    margin-top: 30px;
+    padding: 0;
+    .el-button-group {
+      width: 260px;
+      display: flex;
+      .groupBtn{
+        color: #fff !important;
+      }
+      .groupBtn:hover{
+        background-color: #1fb19e !important;
+        color: #fff !important;
+      }
+      button:nth-child(1) {
+        border-radius: 3px 0 0 3px;
+        @include groupBtnPublic;
+      }
+      button:nth-child(2) {
+        border-radius: 0 3px 3px 0;
+        @include groupBtnPublic;
+      }
+      // 按钮
+      button {
+        @include longBtn;
+        width: 130px;
+      }
+      button:hover {
+        background-color: #e9f7f5;
+        color: #1fb19e;
+      }
+      button:focus {
+        background-color: #1fb19e;
+        color: #fff;
+      }
+      .is-plain {
+        background-color: #fff;
+      }
+      a {
+        display: block;
+        width: 50%;
+        height: 32px;
+      }
+    }
+  }
+}
+
+// 高级搜索的那一行
+@mixin searchRow {
+  .search-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 40px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+  // 下载导入盒子
+  .down-import {
+    margin-top: 7px;
+    display: flex;
+    .upload-demo {
+      margin-left: 10px;
+      width: 100px;
+      height: 32px;
+      margin-right: 5px;
+      position: relative;
+      .el-upload-list {
+        position: absolute;
+        left: 115px;
+        top: -15px;
+      }
+    }
+    button {
+      @include paddingBtn;
+      font-size: 14px;
+      border-radius: 3px;
+    }
+  }
+}
+
+
+
+// 最终样式
+#virtualnumber {
+  min-height: 100vh;
+  .down-import{
+    div{
+      margin: -2px 0 0 5px
+    }
+  }
+  .tableHeadClass{
+    height: 40px;
+  }
+  // 引入1200宽度自适应
+  // @include auto1200;
+  // 引入表格组件样式
+  // @include table;
+  // 引入绑定弹窗删除弹窗组件样式
+  @include dialogHead;
+  // @include baseDialog;
+  @include deleteDialog;
+  @include branchmentDialog;
+  // 引入高级搜索样式
+  // @include hiddenCallAdvancedSearch;
+  // @include advancedSearch;
+  // @include advancedSearchFrom;
+  //引入虚拟号管理页独有样式 
+  @include hiddenLable;
+  @include searchRow;
+  .advanced-search{
+    .el-form-item{
+      margin-bottom: 10px;
+    }
+  }
+}

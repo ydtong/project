@@ -1,0 +1,221 @@
+/**
+ * @author: 周靖松
+ * @information: 弹窗样式
+ * @Date: 2019-04-15 16:46:40
+ */
+// 引入表单样式
+@import "./form.scss";
+
+// dialog头部样式
+@mixin dialogHead {
+  .el-dialog__header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e8eaed;
+    span {
+      font-weight: bold;
+    }
+    i {
+      background-color: #e8eaed;
+      border-radius: 50%;
+      padding: 4px;
+    }
+    .el-dialog__headerbtn:hover i {
+      background-color: #eb4c44;
+    }
+    .el-dialog__headerbtn:focus i {
+      background-color: #dc3028;
+    }
+    .el-dialog__headerbtn:hover .el-dialog__close {
+      color: #fff;
+    }
+  }
+}
+
+//普通弹窗样式
+@mixin baseDialog {
+  //dialog显示部分
+  .el-dialog {
+    width: 430px;
+    height: 280px;
+    border-radius: 10px;
+  }
+  #dialog {
+    // 引入表单
+    @include dialogForm;
+  }
+}
+
+// 删除弹窗内容样式
+@mixin deletePopupContent {
+  //内容部分
+  #deleteDialog {
+    width: 100%;
+    height: 360px;
+    text-align: left;
+    //警告文字
+    .warning-text {
+      font-size: 16px;
+      font-weight: bold;
+      color: #eb4c44;
+      margin-top: 30px;
+    }
+    //问题文字
+    .warning-span {
+      margin-top: 20px;
+      span {
+        background-color: #ffecec;
+        color: #eb4c44;
+        text-align: center;
+        padding: 5px 10px;
+        margin: 0 10px;
+      }
+    }
+    //输入框
+    .el-input {
+      //引入input公共样式
+      @include publicInput;
+      width: 480px;
+      margin-top: 20px;
+      input {
+        //引入input公共样式
+        @include publicInput;
+      }
+    }
+    //按钮盒子
+    .btn-box {
+      margin-top: 20px;
+      button {
+        padding: 0 20px;
+        height: 32px;
+        line-height: 32px;
+        width: auto;
+        .is-disabled {
+          .el-button.is-disabled:focus {
+            background-color: #cccccc;
+          }
+        }
+        //确定删除按钮
+        .confirm {
+          background-color: #eb4c44;
+          border: 1px solid #eb4c44;
+          border-radius: 3px;
+        }
+      }
+      //取消按钮
+      .close {
+        border: 0;
+      }
+    }
+  }
+}
+
+//删除弹窗样式
+@mixin deleteDialog {
+  .deletePopup {
+    .el-dialog {
+      width: 580px;
+      height: 320px;
+      border-radius: 10px;
+      // 引入删除弹窗内容样式
+      @include deletePopupContent;
+    }
+  }
+}
+
+//绑定解绑弹窗样式
+@mixin bindDialog {
+  .el-dialog {
+    width: 385px;
+    height: 285px;
+    border-radius: 10px;
+  }
+  @include bindPopupForm;
+}
+
+// 虚拟号管理页分配部门弹窗内容
+@mixin branchMentContent {
+  #branchMent {
+    .el-form {
+      width: 85%;
+      margin: 0 auto;
+    }
+    .el-form-item {
+      margin-top: 20px;
+      @include publicInput;
+      // 按钮
+      .first-btn {
+        margin-left: 15%;
+      }
+      button {
+        @include longBtn; 
+        padding: 0 20px;
+        width: auto;
+      }
+      // label
+      .el-form-item__label {
+        @include publicInput;
+      }
+      // 远程搜索
+      .el-form-item__content {
+        @include publicInput;
+         text-align: left;
+      }
+      .el-autocomplete {
+        @include publicInput;     
+      }
+      //input组件
+      @include inputComponent(230px)
+    }
+  }
+}
+
+@mixin branchmentDialog {
+  //虚拟号管理页分配部门弹窗
+  .branchment-popup {
+    .el-dialog {
+      width: 385px;
+      height: 231px;
+      @include branchMentContent;
+    }
+  }
+}
+
+// 消息提示弹窗
+@mixin messageDialog {
+    #MessageDialog{
+      // 提示内容
+      .content_wrapper{
+        margin: 0 auto 32px;
+        text-align: center;
+        // 提示图标
+        img{
+          width: 65px;
+          height: 65px;
+          vertical-align: middle;
+          margin-right: 20px;
+        }
+        // 提示内容
+        span{
+          font-size: 16px;
+          color: #4c4c4c;
+        }
+      }
+      // 按钮
+      .operation_button{
+        text-align: right
+      }
+  }
+}
+
+// 最终弹窗样式
+@mixin dialog {
+  //引入头部样式
+  @include dialogHead;
+  //引入普通弹窗样式
+  @include baseDialog;
+  //引入删除弹窗样式
+  @include deleteDialog;
+}
+// 引入消息提示弹窗样式
+@include messageDialog;

@@ -1,0 +1,120 @@
+/**
+ * @author: 周靖松
+ * @information: 表格样式
+ * @Date: 2019-04-15 16:30:57
+ */
+// 引入按钮样式
+// @import "./btn.scss";
+
+//单元格多余隐藏
+@mixin cellHidden {
+  .cell {
+    div {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+
+// 展开列内容
+@mixin tableExtend {
+
+  //展开列的内容
+  .el-table__expanded-cell {
+    width: 1900px;
+    border: 0;
+    height: 120px;
+    padding: 10px 60px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #EBEEF5;
+
+    //展开列里边的工作电话盒子（左右两个）
+    .extend-box {
+      width: 49%;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+
+      //盒子里的详情
+      .extend-item {
+        display: flex;
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+
+        span {
+          color: #1fb19e;
+        }
+
+        p {
+          font-size: 13px;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+
+  .expanded+tr:hover {
+    background-color: #fff;
+    box-shadow: 0px 0px 0px 0px #fff;
+  }
+}
+
+
+
+//操作按钮slot盒子
+@mixin btnSlot {
+
+  //操作按钮slot盒子
+  // .table-btn-slot {
+  //   display: flex;
+  //   justify-content: center;
+  //   height: 30px;
+  //   padding-top: 4px;
+  //   font-size: 12px;
+  //   //引入通用按钮样式
+  //   @include btn;
+
+  //   //分配虚拟号
+  //   .primary {
+  //     font-size: 14px;
+  //     width: 94px;
+  //     padding: 0;
+  //     height: 23px;
+  //   }
+
+  //   // 部门管理页分配按钮
+  //   .distribution-btn {
+  //     width: 50px;
+  //     height: 23px;
+  //   }
+
+  //   .longWarning {
+  //     width: 94px;
+  //   }
+  // }
+}
+
+
+
+//表格组件样式
+@mixin table {
+  #hiddenCallTable {
+    //  展开行样式
+    @include tableExtend;
+    //  操作栏按钮插槽盒子
+    @include btnSlot;
+    //  单元格样式
+    @include cellHidden;
+    width: 100%;
+    .el-table--border{
+      border-bottom: 1px solid #E2E2E2
+    }
+  }
+}
+
+
+// 渲染样式
+@include table;

@@ -1,0 +1,33 @@
+/**
+ * @author: 周靖松
+ * @information: 人员隐号明细页样式
+ * @Date: 2019-04-15 16:29:39
+ */
+//引入公用样式
+@import "../base/public.scss";
+//引入表格样式
+@import "../base/table.scss";
+//引入弹窗样式
+@import "../base/dialog.scss";
+// 引入高级搜索样式
+@import "../base/search.scss";
+
+
+//最终样式
+#depart{
+  // 引入1200宽度自适应
+  // @include auto1200;
+  min-height: 100vh;
+  .el-table--whole{
+    margin-top: 10px;
+  }
+  // 引入表格组件样式
+  // @include table;
+  // 引入普通弹窗组件样式
+  @include dialogHead;
+  @include bindDialog;
+  // 引入高级搜索样式 
+  @include advancedSearch;
+  @include advancedSearchFrom;
+  @include detailAdvancedSearch; 
+}

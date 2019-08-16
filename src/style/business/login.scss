@@ -1,0 +1,127 @@
+/**
+ * @author: 周靖松
+ * @information: 人员库拆过来的样式
+ * @Date: 2019-04-10 09:19:38
+ */
+#Login{
+    position: fixed;
+    left:0px;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    background: #ffffff;
+    .login_title {
+        position:absolute;
+        top:210px;
+        width:648px;
+        left:200px
+    }
+    .login_title::after {
+        display: block;
+        clear: both;
+        zoom: 1;
+        content: '';
+        height:0;
+    }
+    // 登录表单
+    .login_form{
+        box-sizing: content-box;
+        width: 400px;
+        position: absolute;
+        left:500px;
+        top:265px;
+        right:0px;
+        bottom:0px;
+        margin: auto;
+        background: #ffffff;
+        .account_title {
+            width:420px;
+            .login_account {
+                float: left;
+                width:144px;
+                height:85px;
+                margin-left:50px;
+                .account_span_chinese {
+                    width: 100%;
+                    font-size: 36px;
+                    color:#4c4c4c;
+                    font-weight: bold;
+                }
+                .account_span_english {
+                    width:100%;
+                    font-size: 16px;
+                    color:#4c4c4c;
+                }
+            }
+            .login_or {
+                float:left;
+                font-size:60px;
+                font-weight: 100;
+                line-height: 80px;
+                color:#e1e1e1;
+                width: 50px;
+                text-align: center;
+            }
+            .login_sweep {
+                float: left;
+                width:144px;
+                height:60px;
+                margin-top: 20px;
+                color:#999;
+                cursor: not-allowed;
+                .sweep_span_chinese {
+                    width: 100%;
+                    font-size: 24px;
+                }
+                .sweep_span_english {
+                    width:100%;
+                    font-size: 12px;
+                }
+            }
+            
+        }
+        .account_title::after {
+            display: block;
+            clear: both;
+            zoom: 1;
+            content: '';
+            height:0;
+        }
+        .title{
+            color:#333;
+            font-weight: 100;
+            margin: 16px 0;
+            font-size: 20px;
+        }
+        .form_login {
+            margin-top: 75px;
+            .input{
+                text-align: center;
+                input{
+                    height:59px;
+                    padding-left:55px;
+                }
+                input:-webkit-autofill{
+                    background-color: rgba(255, 255, 255, 1);
+                    background-image: none;
+                    color: #000;
+                }
+            }
+            .el-input__prefix {
+                margin-left:15px;
+            }
+            .img-icon {
+                width:22px;
+                height:22px;
+                position:absolute;
+                top:19px;
+            }
+            // 登录按钮
+            .button{
+                margin-top: 40px;
+                width: 100%;
+                height:50px;
+            }
+        }
+    }
+}

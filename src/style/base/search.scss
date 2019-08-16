@@ -1,0 +1,67 @@
+/**
+ * @author: 周靖松
+ * @information: 搜索样式
+ * @Date: 2019-04-15 16:33:16
+ */
+// 引入表单样式
+@import "./form.scss";
+
+
+// 高级搜索盒子
+@mixin advancedSearchBox {
+  .seniorSearch-box {
+    width: 616px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+}
+
+// 高级搜索样式
+@mixin advancedSearch {
+  #AdvancedSearch {
+    .search-input-warp {
+      input {
+        height: 38px;
+        padding: 0px;
+      }
+    }
+    .el-form-item__label{
+      margin-top: -14px;
+    }
+    .el-icon-date:before {
+      position: absolute;
+      left: -15px;
+      top: 3px;
+   }
+  }
+}
+
+// 部门管理页高级搜索盒子独有样式
+@mixin departAdvancedSearch {
+  @include advancedSearchBox;
+  .select-warp {
+    height: 145px;
+    min-height: 145px;
+  }
+}
+
+// 人员隐号管理页高级搜索盒子独有样式
+@mixin detailAdvancedSearch {
+  @include advancedSearchBox;
+  .select-warp {
+    height: 200px;
+    min-height: 200px;
+  }
+}
+
+//虚拟号管理页高级搜索盒子独有样式
+@mixin hiddenCallAdvancedSearch {
+  @include advancedSearchBox;
+  .seniorSearch-box {
+    margin: 0;
+    .select-warp {
+      z-index: 11;
+      padding-bottom: 30px;
+    }
+  }
+}

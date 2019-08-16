@@ -1,0 +1,166 @@
+   /**
+    * @author: 周靖松
+    * @information: 按钮样式
+    * @Date: 2019-04-15 16:46:54
+    */
+   //通用按钮
+   @mixin publicBtn {
+     width: 50px;
+     height: 23px;
+     line-height: 23px;
+     padding: 0px;
+     font-size: 12px;
+   }
+
+   // 100宽的按钮
+   @mixin longBtn {
+     width: 100px;
+     height: 32px;
+     line-height: 32px;
+     padding: 0;
+     border-radius: 3px;
+     font-size: 12px;
+   }
+
+   //padding 20px的按钮
+   @mixin paddingBtn {
+     height: 32px;
+     line-height: 32px;
+     border-radius: 3px;
+     font-size: 14px;
+     padding: 0 20px;
+   }
+
+   //警告按钮
+   @mixin warningBtn {
+     .el-button--warning {
+       @include publicBtn;
+       background-color: transparent;
+       color: #ff8b37;
+       border: 1px solid #ff8b37;
+     }
+     .el-button--warning:hover {
+       border: 1px solid #ff8b37;
+       background-color: #ff8b37;
+       color: #fff;
+     }
+     .el-button--warning:focus {
+       border: 1px solid #e47d32;
+       background-color: #e47d32;
+       color: #fff;
+     }
+   }
+
+   //删除按钮
+   @mixin dangerBtn {
+     .el-button--danger {
+       @include publicBtn;
+       background-color: transparent;
+       color: #eb4c44;
+       border: 1px solid #eb4c44;
+     }
+     .el-button--danger:hover {
+       border: 1px solid #eb4c44;
+       background-color: #eb4c44;
+       color: #fff;
+     }
+     .el-button--danger:focus {
+       border: 1px solid #d3443c;
+       background-color: #d3443c;
+       color: #fff;
+     }
+   }
+
+   //主色虚拟号
+   @mixin primaryBtn {
+     .el-button--primary {
+       @include publicBtn;
+       background-color: transparent;
+       border: 1px solid #1fb19e;
+     }
+     .el-button--primary:hover {
+       background-color: #1fb19e;
+       border: 1px solid #1fb19e;
+       color: #fff;
+     }
+     .el-button--primary:focus {
+       color: #fff;
+       border: 1px solid #1c9f8f;
+       background-color: #1c9f8f;
+     }
+   }
+
+   // 禁用状态按钮
+   @mixin disabledBtn {
+     .is-disabled {
+       padding: 0px;
+       color: #ccc;
+       background-color: transparent;
+       border: 1px solid #e2e2e2;
+     }
+     .is-disabled:hover {
+       color: #ccc;
+       background-color: transparent;
+       border: 1px solid #e2e2e2;
+     }
+   }
+
+   // 不带边框的按钮样式
+   @mixin noBorder {
+     .no-border {
+       border: 0;
+     }
+     .no-border:focus {
+       background-color: #fff !important;
+       color: #1c9f8f;
+     }
+     .no-border:hover {
+       background-color: #fff !important;
+       color: #1fb19e;
+     }
+   }
+
+   // 辅助按钮样式
+   @mixin assistBtn {
+     .assist-btn {
+       border: 1px solid #e2e2e2;
+       background-color: #fff !important;
+       color: #5c5c5c;
+       border-radius: 3px;
+       font-size: 14px;
+     }
+     .assist-btn:focus {
+       border: 1px solid #d6d6d6;
+       background-color: #f2f2f2 !important;
+       color: #5c5c5c;
+     }
+     .assist-btn:hover {
+       border: 1px solid #b5b5b5;
+       background-color: #fff !important;
+       color: #5c5c5c;
+     }
+   }
+
+   // 高级搜索按钮
+   @mixin searchBtn {
+     .advanced-search-btn {
+       text-align: right;
+       padding-right: 5%;
+       button {
+         @include paddingBtn;
+       }
+       @include noBorder;
+     }
+   }
+
+   // 初始化按钮样式
+   @mixin btn {
+     @include warningBtn;
+     @include dangerBtn;
+     @include primaryBtn;
+     @include disabledBtn;
+   }
+   // 引入辅助按钮样式
+   @include assistBtn;
+   // 引入没有边框的按钮样式
+   @include noBorder;
