@@ -13,7 +13,7 @@
     "http": "http-server ./dist"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "http-server": "^0.11.1",
     "iview": "^3.3.3",
     "node-sass": "^4.11.0",
